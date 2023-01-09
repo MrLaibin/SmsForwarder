@@ -126,6 +126,16 @@ object SendUtils {
                     val settingVo = Gson().fromJson(sender.jsonSetting, FeishuAppSetting::class.java)
                     FeishuAppUtils.sendMsg(settingVo, msgInfo, rule, logId)
                 }
+                TYPE_CALL_PHONE -> {
+                    if(msgInfo.content.contains("开会")||
+                        msgInfo.content.contains("cocoa6")||
+                        msgInfo.content.contains("船长")||
+                        msgInfo.content.contains("google.com")){
+                        val settingVo = Gson().fromJson(sender.jsonSetting, SmsSetting::class.java)
+                        CallPhoneUtils.sendMsg(settingVo, msgInfo, rule, logId)
+                    }
+
+                }
                 else -> {
                     updateLogs(logId, 0, "未知发送通道")
                 }

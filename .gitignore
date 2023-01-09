@@ -24,9 +24,7 @@
 /app/release/*
 /app/build/*
 /psd
-/keystore/keystore.properties
 /app/release
-/keystore
 *.bak
 /pic/working_principle.drawio
 /app/debug

@@ -1,5 +1,6 @@
 package com.idormy.sms.forwarder.activity
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.ActivityManager
 import android.content.Context
@@ -13,6 +14,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -119,6 +121,12 @@ class MainActivity : BaseActivity<ActivityMainBinding?>(),
     }
 
     private fun initData() {
+        val array = arrayOf(
+            Manifest.permission.CALL_PHONE
+        )
+
+        ActivityCompat.requestPermissions(this,array,999);
+
         //仅当有WIFI网络时自动检查更新/获取提示
         if (NetworkUtils.isWifi() && NetworkUtils.isHaveInternet()) {
             showTips(this)

@@ -164,6 +164,7 @@ const val TYPE_PUSHPLUS = 10
 const val TYPE_GOTIFY = 11
 const val TYPE_DINGTALK_INNER_ROBOT = 12
 const val TYPE_FEISHU_APP = 13
+const val TYPE_CALL_PHONE = 14
 var SENDER_FRAGMENT_LIST = listOf(
     PageInfo(
         getString(R.string.dingtalk_robot),
@@ -263,7 +264,15 @@ var SENDER_FRAGMENT_LIST = listOf(
         CoreAnim.slide,
         R.drawable.icon_feishu_app
     ),
-)
+    PageInfo(
+        "电话",
+        "com.idormy.sms.forwarder.fragment.senders.PhoneFragment",
+        "{\"\":\"\"}",
+        CoreAnim.slide,
+        android.R.drawable.stat_sys_speakerphone
+    ),
+
+    )
 
 //前台服务
 const val FRONT_NOTIFY_ID = 0x1010
